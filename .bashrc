@@ -1,0 +1,1 @@
+atom -- wait --new-window
