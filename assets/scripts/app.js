@@ -9,5 +9,6 @@ const authEvents = require('./events')
 $(() => {
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
-  $('#sign-out').on('sumbit', authEvents.onSignOut)
+  $('#sign-out').on('click', authEvents.onSignOut)
+  $('#startGame').on('click', authEvents.onStartGame)
 })

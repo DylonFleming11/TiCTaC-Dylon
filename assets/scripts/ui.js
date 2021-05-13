@@ -3,7 +3,7 @@ const store = require('./store')
 
 const signUpSuccess = function (res) {
   $('#sign-up').trigger('reset')
-  $('#messaging').text('Sign up succesfully!')
+  $('#messaging').text('Signed up succesfully!')
 }
 
 const signUpFailure = function (err) {
@@ -13,7 +13,7 @@ const signUpFailure = function (err) {
 
 const signInSuccess = function (res) {
   $('#sign-in').trigger('reset')
-  $('#messaging').text('Sign in succesfully!')
+  $('#messaging').text('Signed in succesfully!')
   console.log(store)
   store.user = res.user
   console.log(store)
@@ -37,11 +37,21 @@ const signOutFailure = function () {
   $('#messaging').text('Failed to sign out')
 }
 
+const onStartGameSuccess = function (res) {
+  $('#messaging').text('GET READY!')
+}
+
+const onStartGameFailure = function () {
+  $('#messaging').text('try again..')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
   signInSuccess,
   signInFailure,
   signOutSuccess,
-  signOutFailure
+  signOutFailure,
+  onStartGameSuccess,
+  onStartGameFailure
 }

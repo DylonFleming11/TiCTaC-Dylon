@@ -27,8 +27,16 @@ const signOut = function () {
   })
 }
 
+const start = function () {
+  return $.ajax({
+    method: 'POST',
+    url: config.apiUrl + '/start-game'
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
-  signOut
+  signOut,
+  start
 }
