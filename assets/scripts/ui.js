@@ -17,8 +17,10 @@ const signInSuccess = function (res) {
   console.log(store)
   store.user = res.user
   console.log(store)
-  $('#after-sign-in').show()
-  $('#before-sign-in').hide()
+  $('.after-sign-in').show()
+  $('.before-sign-in').hide()
+  $('.start-game').show()
+  $('.before-game-start').hide()
 }
 
 const signInFailure = function (err) {
@@ -29,8 +31,8 @@ const signInFailure = function (err) {
 const signOutSuccess = function (res) {
   store.user = null
   $('#messaging').text('succesfully Signed Out!')
-  $('#after-sign-in').hide()
-  $('#before-sign-in').show()
+  $('.after-sign-in').hide()
+  $('.before-sign-in').show()
 }
 
 const signOutFailure = function () {
@@ -38,11 +40,29 @@ const signOutFailure = function () {
 }
 
 const onStartGameSuccess = function (res) {
+  console.log('starting game')
   $('#messaging').text('GET READY!')
+  $('.after-game-start').show()
 }
 
 const onStartGameFailure = function () {
   $('#messaging').text('try again..')
+}
+
+const onGameBoardSuccess = function () {
+  console.log('successful game board interaction')
+}
+
+const onGameBoardFailure = function () {
+  console.log('error with game board interaction')
+}
+
+const onPlayerChoiceSuccess = function () {
+  console.log('Next player')
+}
+
+const onPlayerChoiceFailure = function () {
+  console.log('Didnt switch - error')
 }
 
 module.exports = {
@@ -53,5 +73,9 @@ module.exports = {
   signOutSuccess,
   signOutFailure,
   onStartGameSuccess,
-  onStartGameFailure
+  onStartGameFailure,
+  onGameBoardSuccess,
+  onGameBoardFailure,
+  onPlayerChoiceSuccess,
+  onPlayerChoiceFailure
 }

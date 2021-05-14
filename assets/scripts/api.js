@@ -30,13 +30,26 @@ const signOut = function () {
 const start = function () {
   return $.ajax({
     method: 'POST',
-    url: config.apiUrl + '/start-game'
+    url: config.apiUrl + '/games',
+    headers: {
+      Authorization: `Bearer ${store.user.token}`
+    }
   })
+}
+
+const gameBoard = function () {
+  return $.ajax({})
+}
+
+const player = function () {
+  return $.ajax({})
 }
 
 module.exports = {
   signUp,
   signIn,
   signOut,
-  start
+  start,
+  gameBoard,
+  player
 }

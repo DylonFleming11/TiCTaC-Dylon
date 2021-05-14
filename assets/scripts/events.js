@@ -7,7 +7,7 @@ const ui = require('./ui')
 const onSignUp = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log(data, 'The form data! Sign Up')
+  console.log(data, 'Sign Up')
   api.signUp(data)
     .then(ui.signUpSuccess)
     .catch(ui.signUpFailure)
@@ -16,7 +16,7 @@ const onSignUp = function (event) {
 const onSignIn = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log(data, 'The form data! Sign In')
+  console.log(data, 'Sign In')
   api.signIn(data)
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)
@@ -31,14 +31,38 @@ const onSignOut = function (event) {
 
 const onStartGame = function (event) {
   event.preventDefault()
+  console.log('start game')
   api.start()
-    .then(ui.startGameSuccess)
-    .catch(ui.startGameFailure)
+    .then(ui.onStartGameSuccess)
+    .catch(ui.onStartGameFailure)
+}
+
+const onGameBoard = function (event) {
+  event.preventDefault()
+  console.log('Board has been clicked')
+  api.gameBoard()
+    .then(ui.onGameBoardSuccess)
+    .catch(ui.onGameBoardFailure)
+}
+
+const onPlayerChoice = function (currentPlayer) {
+  let player = 'p1'
+  if (currentPlayer === 'p1') {
+    player = 'p2'
+  } else {
+    player = 'p1'
+  }
+  api.player()
+    .then(ui.onPlayerChoiceSuccess)
+    .catch(ui.onPlayerChoiceFailure)
+  return player
 }
 
 module.exports = {
   onSignIn,
   onSignUp,
   onSignOut,
-  onStartGame
+  onStartGame,
+  onGameBoard,
+  onPlayerChoice
 }
