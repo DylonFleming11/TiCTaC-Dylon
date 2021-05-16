@@ -45,17 +45,29 @@ const onGameBoard = function (event) {
     .catch(ui.onGameBoardFailure)
 }
 
-const onPlayerChoice = function (currentPlayer) {
-  let player = 'p1'
-  if (currentPlayer === 'p1') {
-    player = 'p2'
+let currentPlayer = 'x'
+const onPlayerChoice = function (event) {
+  console.log(currentPlayer)
+  if (currentPlayer === 'x') {
+    currentPlayer = 'o'
   } else {
-    player = 'p1'
+    currentPlayer = 'x'
   }
-  api.player()
-    .then(ui.onPlayerChoiceSuccess)
-    .catch(ui.onPlayerChoiceFailure)
-  return player
+
+  // api.player()
+  //   .then(ui.onPlayerChoiceSuccess)
+  //   .catch(ui.onPlayerChoiceFailure)
+
+//   if (currentPlayer === 'x') {
+//     $('.messaging-x-o').text('Player 2\'s turn!')
+//   } else if (currentPlayer === 'o') {
+//     $('.messaging-x-o').text('Player 1\'s turn!')
+//   }
+//   return currentPlayer
+// }
+//   api.player()
+//     .then(ui.onPlayerChoiceSuccess)
+//   .catch(ui.onPlayerChoiceFailure)
 }
 
 module.exports = {

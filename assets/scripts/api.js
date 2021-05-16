@@ -42,7 +42,13 @@ const gameBoard = function () {
 }
 
 const player = function () {
-  return $.ajax({})
+  return $.ajax({
+    method: 'PATCH',
+    url: config.apiUrl + '/games',
+    headers: {
+      Authorization: `Bearer ${store.user.token}`
+    }
+  })
 }
 
 module.exports = {

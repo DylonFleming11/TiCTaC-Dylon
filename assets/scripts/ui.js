@@ -40,6 +40,7 @@ const signOutFailure = function () {
 }
 
 const onStartGameSuccess = function (res) {
+  console.log(res)
   console.log('starting game')
   $('#messaging').text('GET READY!')
   $('.after-game-start').show()
@@ -49,8 +50,9 @@ const onStartGameFailure = function () {
   $('#messaging').text('try again..')
 }
 
-const onGameBoardSuccess = function () {
+const onGameBoardSuccess = function (res) {
   console.log('successful game board interaction')
+  store.user = res.game
 }
 
 const onGameBoardFailure = function () {
@@ -59,6 +61,7 @@ const onGameBoardFailure = function () {
 
 const onPlayerChoiceSuccess = function () {
   console.log('Next player')
+  $('.player-choice').show()
 }
 
 const onPlayerChoiceFailure = function () {
