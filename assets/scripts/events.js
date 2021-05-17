@@ -40,7 +40,10 @@ const onStartGame = function (event) {
 const onGameBoard = function (event) {
   event.preventDefault()
   console.log('Board has been clicked')
-  api.gameBoard()
+  const cellId = event.target.id
+  const data = getFormFields(event.target)
+
+  api.gameBoard(cellId, data)
     .then(ui.onGameBoardSuccess)
     .catch(ui.onGameBoardFailure)
 }
@@ -48,26 +51,19 @@ const onGameBoard = function (event) {
 let currentPlayer = 'x'
 const onPlayerChoice = function (event) {
   console.log(currentPlayer)
+  // const cell = $(event.target)
+  // const cellData = $(event.target).data('cell-index')
+  // const value = cell.text()
+  // const formData = getFormFields(cellData)
+  // const player = formData.game.id
   if (currentPlayer === 'x') {
     currentPlayer = 'o'
   } else {
     currentPlayer = 'x'
   }
-
-  // api.player()
+  // api.player(player, formData)
   //   .then(ui.onPlayerChoiceSuccess)
   //   .catch(ui.onPlayerChoiceFailure)
-
-//   if (currentPlayer === 'x') {
-//     $('.messaging-x-o').text('Player 2\'s turn!')
-//   } else if (currentPlayer === 'o') {
-//     $('.messaging-x-o').text('Player 1\'s turn!')
-//   }
-//   return currentPlayer
-// }
-//   api.player()
-//     .then(ui.onPlayerChoiceSuccess)
-//   .catch(ui.onPlayerChoiceFailure)
 }
 
 module.exports = {

@@ -37,8 +37,23 @@ const start = function () {
   })
 }
 
-const gameBoard = function () {
-  return $.ajax({})
+const gameBoard = function (cellId, data) {
+  return $.ajax({
+    method: 'PATCH',
+    url: config.apiUrl + '/games/:id',
+    headers: {
+      Authorization: `Bearer ${store.user.token}`
+    },
+    data: {
+      game: {
+        cell: {
+          index: `${cellId}`,
+          value: `${data}`
+        },
+        over: false
+      }
+    }
+  })
 }
 
 const player = function () {

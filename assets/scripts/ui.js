@@ -52,7 +52,7 @@ const onStartGameFailure = function () {
 
 const onGameBoardSuccess = function (res) {
   console.log('successful game board interaction')
-  store.user = res.game
+  store.game = res.game
 }
 
 const onGameBoardFailure = function () {
