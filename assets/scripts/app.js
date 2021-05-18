@@ -15,4 +15,7 @@ $(() => {
   $('.after-sign-in').hide()
   $('.after-game-start').hide()
   $('.player-choice').on('click', authEvents.onPlayerChoice)
+  $('data-cell-index').on('click', function (event) {
+    $(event.target).data('id')
+  })
 })

@@ -37,40 +37,46 @@ const onStartGame = function (event) {
     .catch(ui.onStartGameFailure)
 }
 
-const onGameBoard = function (event) {
-  event.preventDefault()
-  console.log('Board has been clicked')
-  const cellId = event.target.id
-  const data = getFormFields(event.target)
-
-  api.gameBoard(cellId, data)
-    .then(ui.onGameBoardSuccess)
-    .catch(ui.onGameBoardFailure)
-}
-
-let currentPlayer = 'x'
+let currentPlayer = 'X'
 const onPlayerChoice = function (event) {
-  console.log(currentPlayer)
-  // const cell = $(event.target)
-  // const cellData = $(event.target).data('cell-index')
-  // const value = cell.text()
-  // const formData = getFormFields(cellData)
-  // const player = formData.game.id
-  if (currentPlayer === 'x') {
-    currentPlayer = 'o'
-  } else {
-    currentPlayer = 'x'
+  const playerChoice = $(event.target)
+  if ($(playerChoice).text() === '') {
+    playerChoice.text(currentPlayer)
+    const cellId = playerChoice.data('cell-index')
+    console.log(cellId)
+    // const data = currentPlayer
+    api.gameBoard(cellId, currentPlayer)
+      .then(ui.onPlayerChoiceSuccess)
+      .catch(ui.onPlayerChoiceFailure)
+    if (currentPlayer === 'X') {
+      currentPlayer = 'O'
+    } else {
+      currentPlayer = 'X'
+    }
+  } else if ($(playerChoice).text() !== '') {
+    $(playerChoice).text()
   }
-  // api.player(player, formData)
-  //   .then(ui.onPlayerChoiceSuccess)
-  //   .catch(ui.onPlayerChoiceFailure)
 }
+
+// const xWin = ['x', 'x', 'x']
+// const oWin = ['o', 'o', 'o']
+// const winCondition = function (store) {
+//   if (store.game.index[0] === store.game.index[1] & store.game.index[0] === store.game.index[2]) {
+//     $('#messaging-x-o').text('We have a winner!')
+//     store.game.over = true
+//   } else if (store.game.index[3] === store.game.index[4] & store.game.index[3] === store.game.index[5]) {
+//     $('#messaging-x-o').text('We have a winner!')
+//     store.game.over = true
+//   } else if (store.game.index[6] === store.game.index[7] & store.game.index[6] === store.game.index[8]) {
+//     $('#messaging-x-o').text('We have a winner!')
+//     store.game.over = true
+// }
 
 module.exports = {
   onSignIn,
   onSignUp,
   onSignOut,
   onStartGame,
-  onGameBoard,
   onPlayerChoice
+  // winCondition
 }

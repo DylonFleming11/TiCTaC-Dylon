@@ -38,9 +38,10 @@ const start = function () {
 }
 
 const gameBoard = function (cellId, data) {
+  console.log(store, 'api store')
   return $.ajax({
     method: 'PATCH',
-    url: config.apiUrl + '/games/:id',
+    url: config.apiUrl + '/games/' + store.game._id,
     headers: {
       Authorization: `Bearer ${store.user.token}`
     },
@@ -56,21 +57,11 @@ const gameBoard = function (cellId, data) {
   })
 }
 
-const player = function () {
-  return $.ajax({
-    method: 'PATCH',
-    url: config.apiUrl + '/games',
-    headers: {
-      Authorization: `Bearer ${store.user.token}`
-    }
-  })
-}
-
 module.exports = {
   signUp,
   signIn,
   signOut,
   start,
-  gameBoard,
-  player
+  gameBoard
+  // player
 }

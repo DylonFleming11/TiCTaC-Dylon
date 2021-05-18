@@ -42,6 +42,8 @@ const signOutFailure = function () {
 const onStartGameSuccess = function (res) {
   console.log(res)
   console.log('starting game')
+  store.game = res.game
+  console.log(store, 'ui store here!')
   $('#messaging').text('GET READY!')
   $('.after-game-start').show()
 }
@@ -50,18 +52,11 @@ const onStartGameFailure = function () {
   $('#messaging').text('try again..')
 }
 
-const onGameBoardSuccess = function (res) {
-  console.log('successful game board interaction')
-  store.game = res.game
-}
-
-const onGameBoardFailure = function () {
-  console.log('error with game board interaction')
-}
-
-const onPlayerChoiceSuccess = function () {
+const onPlayerChoiceSuccess = function (res) {
   console.log('Next player')
   $('.player-choice').show()
+  store.game = res.game
+  console.log(store)
 }
 
 const onPlayerChoiceFailure = function () {
@@ -77,8 +72,8 @@ module.exports = {
   signOutFailure,
   onStartGameSuccess,
   onStartGameFailure,
-  onGameBoardSuccess,
-  onGameBoardFailure,
+  // onGameBoardSuccess,
+  // onGameBoardFailure,
   onPlayerChoiceSuccess,
   onPlayerChoiceFailure
 }
