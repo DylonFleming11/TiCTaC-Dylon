@@ -57,11 +57,21 @@ const gameBoard = function (cellId, data) {
   })
 }
 
+const next = function () {
+  return $.ajax({
+    method: 'POST',
+    url: config.apiUrl + '/games',
+    headers: {
+      Authorization: `Bearer ${store.user.token}`
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   signOut,
   start,
-  gameBoard
-  // player
+  gameBoard,
+  next
 }

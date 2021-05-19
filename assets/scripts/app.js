@@ -11,6 +11,7 @@ $(() => {
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#sign-out').on('click', authEvents.onSignOut)
   $('.start-game').on('click', authEvents.onStartGame)
+  $('.start-game').on('click', authEvents.onNextGame)
   $('.game-board').on('click', authEvents.onGameBoard)
   $('.after-sign-in').hide()
   $('.after-game-start').hide()

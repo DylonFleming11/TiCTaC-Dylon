@@ -58,10 +58,19 @@ const onPlayerChoice = function (event) {
   }
 }
 
+const onNextGame = function (event) {
+  event.preventDefault()
+  console.log('start game')
+  api.next()
+    .then(ui.onStartGameSuccess)
+    .catch(ui.onStartGameFailure)
+}
+
 module.exports = {
   onSignIn,
   onSignUp,
   onSignOut,
   onStartGame,
-  onPlayerChoice
+  onPlayerChoice,
+  onNextGame
 }
