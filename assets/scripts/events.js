@@ -58,25 +58,10 @@ const onPlayerChoice = function (event) {
   }
 }
 
-// const xWin = ['x', 'x', 'x']
-// const oWin = ['o', 'o', 'o']
-// const winCondition = function (store) {
-//   if (store.game.index[0] === store.game.index[1] & store.game.index[0] === store.game.index[2]) {
-//     $('#messaging-x-o').text('We have a winner!')
-//     store.game.over = true
-//   } else if (store.game.index[3] === store.game.index[4] & store.game.index[3] === store.game.index[5]) {
-//     $('#messaging-x-o').text('We have a winner!')
-//     store.game.over = true
-//   } else if (store.game.index[6] === store.game.index[7] & store.game.index[6] === store.game.index[8]) {
-//     $('#messaging-x-o').text('We have a winner!')
-//     store.game.over = true
-// }
-
 module.exports = {
   onSignIn,
   onSignUp,
   onSignOut,
   onStartGame,
   onPlayerChoice
-  // winCondition
 }
