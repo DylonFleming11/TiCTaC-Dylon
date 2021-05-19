@@ -61,7 +61,8 @@ const onPlayerChoice = function (event) {
 const onNextGame = function (event) {
   event.preventDefault()
   console.log('start game')
-  api.next()
+  $('.box').html('')
+  api.start()
     .then(ui.onStartGameSuccess)
     .catch(ui.onStartGameFailure)
 }
