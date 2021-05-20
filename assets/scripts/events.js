@@ -65,6 +65,7 @@ const onNextGame = function (event) {
   api.start()
     .then(ui.onStartGameSuccess)
     .catch(ui.onStartGameFailure)
+  currentPlayer = 'X'
 }
 
 module.exports = {
