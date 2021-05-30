@@ -66,6 +66,7 @@ const onNextGame = function (event) {
     .then(ui.onStartGameSuccess)
     .catch(ui.onStartGameFailure)
   currentPlayer = 'X'
+  $('.messaging-x-o').text('')
 }
 
 module.exports = {

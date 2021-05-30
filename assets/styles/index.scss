@@ -4,9 +4,20 @@
   height: 100vh;
 }
 
+head {
+  background-color: white;
+}
+
 h1 {
   text-shadow: 2px 2px 5px red;
   margin: 30px;
+  background-color: white;
+}
+
+body {
+  // background-image: url('Pictures/TicBackGround.jpg');
+  // background-repeat: no-repeat;
+  background-color: tan;
 }
 
 .board {
@@ -14,15 +25,16 @@ h1 {
   height: 100%;
   max-height: calc(100vh - 75px);
   max-width: calc(100vh - 75px);
-  background-color: skyblue;
+  background-color: green;
   background-size: cover;
-
+  position: relative;
+  top: 90px;
 }
 
 .box {
   height: 80px;
-  border-right: 1px solid black;
-  border-bottom: 1px solid black;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
   &:nth-child(3n) {
     border-right: 0;
   }
@@ -34,10 +46,10 @@ h1 {
   justify-content: center;
   align-items: center;
   background: transparent;
-  font-size: 5vh;
+  font-size: 8vh;
   text-shadow: 2px 2px rgba(0, 0, 0, .25);
   &:hover {
-    background-color: darkblue;
+    background-color: grey;
   }
   user-select: none;
 }
@@ -48,6 +60,8 @@ h1 {
   border-bottom-style: solid;
   border-width: thick;
   border-color: black;
+  background-color: white;
+  padding-top: 2px;
 }
 .bottom-section {
   position: fixed;
@@ -79,4 +93,11 @@ h1 {
  padding: 5px;
  width: 150px;
  height: 50px;
+}
+
+.messaging-x-o {
+  text-align: center;
+  margin: 15px;
+  font-size: 30px;
+  Color: green;
 }
